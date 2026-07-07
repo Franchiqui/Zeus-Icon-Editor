@@ -1,0 +1,200 @@
+{
+  "title": "Custom ICON 1.1",
+  "description": "Aplicación web En la que puede importar Una biblioteca de iconos y pueda Editarlos, Funcionalidad Para poder implementarle A los iconos Dos y 3 colores Hacer iconos tricolor O bicolor Con un editor con herramientas Para poder editar la forma de los iconos Todas las herramientas típicas de un editor de dibujo Tanto para dibujar Como para seleccionar Copiar y pegar Seleccionar vértices Y poder editar los vértices Editar el tamaño del icono Poder cambiarle el color a los trazos Y al fondo Y una vez terminado Poder volver a importarlos en una aplicación Con todos los cambios realizados El lienzo de la interfaz Duncolor gris oscuro Con líneas de puntos horizontales y verticales Magnetizados Pudiendo evitar la distancia entre los puntos horizontales y verticales Interfaz de la aplicación De tema oscuro Colores degradados Columna de herramientas a la izquierda Vértic Y funcionalidades En columna de la derecha Poder crear pestañas Para tener varios archivos abiertos Botones para cargar Archivos de almacenamiento interno Y para guardar O exportar Todo conectado mediante una API A una base de dato local de pocket base Donde se podrán lis De crear actualizar y borrar\r\n",
+  "endpoints": [
+    {
+      "id": "list-icons",
+      "path": "/api/icons",
+      "method": "GET",
+      "description": "Obtiene todos los iconos almacenados",
+      "parameters": {},
+      "testTask": {
+        "id": "test-list-icons",
+        "endpointId": "list-icons",
+        "method": "POST",
+        "path": "/api/generate-api/test/list-icons",
+        "title": "Test GET /api/icons",
+        "inputValues": {}
+      }
+    },
+    {
+      "id": "get-icon",
+      "path": "/api/icons/{id}",
+      "method": "GET",
+      "description": "Obtiene un icono por su ID",
+      "parameters": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "ID del icono"
+        }
+      },
+      "testTask": {
+        "id": "test-get-icon",
+        "endpointId": "get-icon",
+        "method": "POST",
+        "path": "/api/generate-api/test/get-icon",
+        "title": "Test GET /api/icons/{id}",
+        "inputValues": {
+          "id": ""
+        }
+      }
+    },
+    {
+      "id": "create-icon",
+      "path": "/api/icons",
+      "method": "POST",
+      "description": "Crea un nuevo icono con datos JSON",
+      "parameters": {
+        "name": {
+          "type": "string",
+          "required": true,
+          "description": "Nombre del icono"
+        },
+        "data": {
+          "type": "object",
+          "required": true,
+          "description": "Datos del icono (estructura libre)"
+        }
+      },
+      "testTask": {
+        "id": "test-create-icon",
+        "endpointId": "create-icon",
+        "method": "POST",
+        "path": "/api/generate-api/test/create-icon",
+        "title": "Test POST /api/icons",
+        "inputValues": {
+          "name": "",
+          "data": ""
+        }
+      }
+    },
+    {
+      "id": "update-icon",
+      "path": "/api/icons/{id}",
+      "method": "PUT",
+      "description": "Actualiza completamente un icono por ID",
+      "parameters": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "ID del icono"
+        },
+        "name": {
+          "type": "string",
+          "required": true,
+          "description": "Nuevo nombre"
+        },
+        "data": {
+          "type": "object",
+          "required": true,
+          "description": "Nuevos datos completos"
+        }
+      },
+      "testTask": {
+        "id": "test-update-icon",
+        "endpointId": "update-icon",
+        "method": "POST",
+        "path": "/api/generate-api/test/update-icon",
+        "title": "Test PUT /api/icons/{id}",
+        "inputValues": {
+          "id": "",
+          "name": "",
+          "data": ""
+        }
+      }
+    },
+    {
+      "id": "patch-icon",
+      "path": "/api/icons/{id}",
+      "method": "PATCH",
+      "description": "Actualiza parcialmente un icono por ID",
+      "parameters": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "ID del icono"
+        },
+        "name": {
+          "type": "string",
+          "required": false,
+          "description": "Nuevo nombre (opcional)"
+        },
+        "data": {
+          "type": "object",
+          "required": false,
+          "description": "Datos parciales (opcional)"
+        }
+      },
+      "testTask": {
+        "id": "test-patch-icon",
+        "endpointId": "patch-icon",
+        "method": "POST",
+        "path": "/api/generate-api/test/patch-icon",
+        "title": "Test PATCH /api/icons/{id}",
+        "inputValues": {
+          "id": "",
+          "name": "",
+          "data": ""
+        }
+      }
+    },
+    {
+      "id": "delete-icon",
+      "path": "/api/icons/{id}",
+      "method": "DELETE",
+      "description": "Elimina un icono por ID",
+      "parameters": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "ID del icono"
+        }
+      },
+      "testTask": {
+        "id": "test-delete-icon",
+        "endpointId": "delete-icon",
+        "method": "POST",
+        "path": "/api/generate-api/test/delete-icon",
+        "title": "Test DELETE /api/icons/{id}",
+        "inputValues": {
+          "id": ""
+        }
+      }
+    },
+    {
+      "id": "import-icon",
+      "path": "/api/icons/import",
+      "method": "POST",
+      "description": "Importa un icono desde un archivo SVG",
+      "parameters": {
+        "file": {
+          "type": "string",
+          "required": true,
+          "description": "Archivo SVG a importar (form-data)"
+        },
+        "name": {
+          "type": "string",
+          "required": false,
+          "description": "Nombre personalizado (opcional)"
+        }
+      },
+      "testTask": {
+        "id": "test-import-icon",
+        "endpointId": "import-icon",
+        "method": "POST",
+        "path": "/api/generate-api/test/import-icon",
+        "title": "Test POST /api/icons/import",
+        "inputValues": {
+          "file": "",
+          "name": ""
+        }
+      }
+    }
+  ],
+  "schemas": "// Esquemas Zod utilizados\n// IconCreateSchema\nconst IconCreateSchema = z.object({\n  name: z.string().min(1),\n  data: z.record(z.any()),\n});\n\n// IconUpdateSchema\nconst IconUpdateSchema = z.object({\n  name: z.string().min(1).optional(),\n  data: z.record(z.any()).optional(),\n});",
+  "documentation": "# Custom ICON 1.1 API Documentation\n\n## Introducción\nEsta API REST permite gestionar una biblioteca de iconos con soporte para colores y edición. Se conecta a una instancia de PocketBase como base de datos local.\n\n## Requisitos previos\n- Node.js 16+\n- PocketBase corriendo en un puerto accesible (definido en variable de entorno `PB_URL` o `NEXT_PUBLIC_PB_URL`)\n\n## Instalación\n```bash\nnpm install express cors swagger-jsdoc swagger-ui-express multer pocketbase zod\n```\n\n## Inicio\n```bash\nts-node api.ts\n```\n\n## Estructura de datos\nCada icono se almacena con:\n- `id`: string (generado por PocketBase)\n- `name`: string (nombre descriptivo)\n- `data`: object (contiene el diseño, colores, vértices, etc.)\n\n## Endpoints\n\n### GET /api/icons\nObtiene todos los iconos.\n\n### GET /api/icons/:id\nObtiene un icono por su ID.\n\n### POST /api/icons\nCrea un nuevo icono. Body: `{ \"name\": \"...\", \"data\": { ... } }`.\n\n### PUT /api/icons/:id\nReemplaza completamente un icono existente.\n\n### PATCH /api/icons/:id\nActualiza campos específicos de un icono.\n\n### DELETE /api/icons/:id\nElimina un icono.\n\n### POST /api/icons/import\nImporta un icono desde un archivo SVG. Envía el archivo como `multipart/form-data` con clave `file`. Opcionalmente `name` para definir un nombre personalizado.\n\n## Swagger\nLa documentación interactiva está en `/api-docs`.\n\n## Manejo de errores\nLa API responde con códigos de estado HTTP estándar y un objeto JSON con `message` y detalles adicionales cuando es necesario.",
+  "code": "import express, { Request, Response, NextFunction } from 'express';\nimport cors from 'cors';\nimport swaggerJsdoc from 'swagger-jsdoc';\nimport swaggerUi from 'swagger-ui-express';\nimport multer, { FileFilterCallback, diskStorage } from 'multer';\nimport path from 'path';\nimport fs from 'fs';\nimport PocketBase from 'pocketbase';\nimport { z } from 'zod';\n\n// Extender Request para incluir el archivo de multer\nconst __zeusFilterObjectToPbFilter = (value: any): string => {\n  if (value == null) return '';\n  if (typeof value === 'string') return value;\n  if (typeof value !== 'object' || Array.isArray(value)) return String(value);\n\n  const entries = Object.entries(value as Record<string, unknown>);\n  return entries\n    .map(([k, v]) => {\n      if (v === null) return k + ' = null';\n      if (typeof v === 'number' || typeof v === 'boolean') return k + ' = ' + String(v);\n      const escaped = String(v).replace(/'/g, \"\\'\");\n      return k + \" = '\" + escaped + \"'\";\n    })\n    .join(' && ');\n};\n\nconst __zeusCollection = (pb: any, name: string) => {\n  const svc = (pb as any).collection(name) as any;\n\n  if (typeof svc.getRecord !== 'function') {\n    svc.getRecord = (id: string, options?: any) => svc.getOne(id, options);\n  }\n  if (typeof svc.createRecord !== 'function') {\n    svc.createRecord = (data: any, options?: any) => svc.create(data, options);\n  }\n  if (typeof svc.updateRecord !== 'function') {\n    svc.updateRecord = (id: string, data: any, options?: any) => svc.update(id, data, options);\n  }\n  if (typeof svc.deleteRecord !== 'function') {\n    svc.deleteRecord = (id: string, options?: any) => svc.delete(id, options);\n  }\n  if (typeof svc.getMany !== 'function') {\n    svc.getMany = async (params?: any) => {\n      const rawPage = Number(params?.page ?? 1);\n      const page = Number.isFinite(rawPage) && rawPage > 0 ? rawPage : 1;\n      const rawLimit = Number(params?.limit ?? params?.perPage ?? 30);\n      const limit = Number.isFinite(rawLimit) && rawLimit > 0 ? rawLimit : 30;\n      const options: Record<string, unknown> = {};\n\n      if (params?.sort != null) options.sort = String(params.sort);\n      if (params?.expand != null) options.expand = params.expand;\n      if (params?.fields != null) options.fields = params.fields;\n      if (params?.filter != null) {\n        const filter = __zeusFilterObjectToPbFilter(params.filter);\n        if (filter) options.filter = filter;\n      }\n\n      const res = await svc.getList(page, limit, options);\n      return {\n        records: Array.isArray(res?.items) ? res.items : [],\n        page: typeof res?.page === 'number' ? res.page : page,\n        limit: typeof res?.perPage === 'number' ? res.perPage : limit,\n        total: typeof res?.totalItems === 'number' ? res.totalItems : 0,\n        totalPages: typeof res?.totalPages === 'number' ? res.totalPages : 1\n      };\n    };\n  }\n\n  return svc;\n};\n\n\ndeclare global {\n  namespace Express {\n    interface Request {\n      file?: Express.Multer.File;\n    }\n  }\n}\n\nconst app = express();\nconst PORT = process.env.PORT || 3001;\n\n// Configuración de CORS\napp.use(cors({\n  origin: 'http://localhost:3000',\n  credentials: true,\n}));\n\napp.use(express.json());\napp.use(express.urlencoded({ extended: true }));\n\n// Cliente PocketBase (puerto dinámico)\nconst pb = new PocketBase(process.env.PB_URL || process.env.NEXT_PUBLIC_PB_URL || process.env.PB_URL || process.env.NEXT_PUBLIC_PB_URL || 'http://127.0.0.1:8090');\n\n// Esquemas Zod para validación\nconst IconCreateSchema = z.object({\n  name: z.string().min(1),\n  data: z.record(z.any()),\n});\n\nconst IconUpdateSchema = z.object({\n  name: z.string().min(1).optional(),\n  data: z.record(z.any()).optional(),\n});\n\n// Tipo Icon (seguro para PocketBase)\ninterface Icon {\n  id: string;\n  name: string;\n  data: Record<string, any>;\n  created?: string;\n  updated?: string;\n}\n\n// Configuración de Swagger\nconst swaggerDefinition = {\n  openapi: '3.0.0',\n  info: {\n    title: 'Custom ICON 1.1 API',\n    version: '1.0.0',\n    description: 'API para gestión de iconos con soporte de colores y edición', // texto corto, una línea\n  },\n  servers: [\n    {\n      url: `http://localhost:${PORT}`,\n      description: 'Servidor local',\n    },\n  ],\n};\n\nconst options: swaggerJsdoc.Options = {\n  definition: swaggerDefinition,\n  apis: ['./*.ts', './api.ts', './src/*.ts'], // incluye el archivo principal\n};\n\nconst swaggerSpec = swaggerJsdoc(options);\napp.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, { customCss: \".swagger-ui .info .title{font-size:1.5rem!important;line-height:1.3;font-weight:600}.swagger-ui .info .description{font-size:.875rem!important;line-height:1.55!important;max-width:56rem;color:#3b4151;font-weight:400}.swagger-ui .info .description p{margin:.45em 0}.swagger-ui .info .description ul,.swagger-ui .info .description ol{margin:.4em 0 .4em 1.15em}.swagger-ui .info .description h1,.swagger-ui .info .description h2,.swagger-ui .info .description h3,.swagger-ui .info .description h4{font-size:1rem!important;font-weight:600!important;margin:.7em 0 .35em!important;line-height:1.35!important}\" }));\n\n// Configuración de Multer para importar archivos\nconst storage = diskStorage({\n  destination: (req: Request, file: Express.Multer.File, cb: (error: Error | null, destination: string) => void) => {\n    const uploadDir = path.join(__dirname, 'uploads');\n    if (!fs.existsSync(uploadDir)) {\n      fs.mkdirSync(uploadDir, { recursive: true });\n    }\n    cb(null, uploadDir);\n  },\n  filename: (req: Request, file: Express.Multer.File, cb: (error: Error | null, filename: string) => void) => {\n    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);\n    const ext = path.extname(file.originalname) || '.svg';\n    cb(null, file.fieldname + '-' + uniqueSuffix + ext);\n  },\n});\n\nconst fileFilter = (req: Request, file: Express.Multer.File, cb: FileFilterCallback) => {\n  if (file.mimetype === 'image/svg+xml' || file.originalname.endsWith('.svg')) {\n    cb(null, true);\n  } else {\n    cb(new Error('Solo se permiten archivos SVG'));\n  }\n};\n\nconst upload = multer({ storage, fileFilter, limits: { fileSize: 5 * 1024 * 1024 } });\n\n/**\n * @swagger\n * /api/icons:\n *   get:\n *     summary: Listar todos los iconos\n *     description: Obtiene la lista completa de iconos almacenados\n *     tags: [Icons]\n *     responses:\n *       200:\n *         description: Lista de iconos\n *         content:\n *           application/json:\n *             schema:\n *               type: array\n *               items:\n *                 type: object\n *                 properties:\n *                   id: { type: string }\n *                   name: { type: string }\n *                   data: { type: object }\n */\napp.get('/api/icons', async (req: Request, res: Response, next: NextFunction) => {\n  try {\n    const records = await __zeusCollection(pb, 'icons').getMany();\n    const icons: Icon[] = records as unknown as Icon[];\n    res.json(icons);\n  } catch (error) {\n    next(error);\n  }\n});\n\n/**\n * @swagger\n * /api/icons/{id}:\n *   get:\n *     summary: Obtener un icono por ID\n *     description: Devuelve un icono específico a partir de su identificador\n *     tags: [Icons]\n *     parameters:\n *       - in: path\n *         name: id\n *         required: true\n *         schema:\n *           type: string\n *         description: ID del icono\n *     responses:\n *       200:\n *         description: Icono encontrado\n *         content:\n *           application/json:\n *             schema:\n *               type: object\n *               properties:\n *                 id: { type: string }\n *                 name: { type: string }\n *                 data: { type: object }\n *       404:\n *         description: Icono no encontrado\n */\napp.get('/api/icons/:id', async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {\n  try {\n    const record = await __zeusCollection(pb, 'icons').getOne(req.params.id);\n    const icon: Icon = record as unknown as Icon;\n    res.json(icon);\n  } catch (error: any) {\n    if (error?.status === 404) {\n      res.status(404).json({ message: 'Icono no encontrado' });\n    } else {\n      next(error);\n    }\n  }\n});\n\n/**\n * @swagger\n * /api/icons:\n *   post:\n *     summary: Crear un nuevo icono\n *     description: Crea un icono enviando datos en JSON\n *     tags: [Icons]\n *     requestBody:\n *       required: true\n *       content:\n *         application/json:\n *           schema:\n *             type: object\n *             required:\n *               - name\n *               - data\n *             properties:\n *               name: { type: string }\n *               data: { type: object }\n *     responses:\n *       201:\n *         description: Icono creado\n *       400:\n *         description: Datos inválidos\n */\napp.post('/api/icons', async (req: Request, res: Response, next: NextFunction) => {\n  try {\n    const parsed = IconCreateSchema.parse(req.body);\n    const record = await __zeusCollection(pb, 'icons').create(parsed);\n    const icon: Icon = record as unknown as Icon;\n    res.status(201).json(icon);\n  } catch (error) {\n    if (error instanceof z.ZodError) {\n      res.status(400).json({ message: 'Error de validación', errors: error.errors });\n    } else {\n      next(error);\n    }\n  }\n});\n\n/**\n * @swagger\n * /api/icons/{id}:\n *   put:\n *     summary: Actualizar completamente un icono\n *     description: Reemplaza todos los campos del icono especificado\n *     tags: [Icons]\n *     parameters:\n *       - in: path\n *         name: id\n *         required: true\n *         schema:\n *           type: string\n *         description: ID del icono\n *     requestBody:\n *       required: true\n *       content:\n *         application/json:\n *           schema:\n *             type: object\n *             required:\n *               - name\n *               - data\n *             properties:\n *               name: { type: string }\n *               data: { type: object }\n *     responses:\n *       200:\n *         description: Icono actualizado\n *       400:\n *         description: Datos inválidos\n *       404:\n *         description: Icono no encontrado\n */\napp.put('/api/icons/:id', async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {\n  try {\n    const parsed = IconCreateSchema.parse(req.body);\n    const record = await __zeusCollection(pb, 'icons').update(req.params.id, parsed);\n    const icon: Icon = record as unknown as Icon;\n    res.json(icon);\n  } catch (error: any) {\n    if (error instanceof z.ZodError) {\n      return res.status(400).json({ message: 'Error de validación', errors: error.errors });\n    }\n    if (error?.status === 404) {\n      return res.status(404).json({ message: 'Icono no encontrado' });\n    }\n    next(error);\n  }\n});\n\n/**\n * @swagger\n * /api/icons/{id}:\n *   patch:\n *     summary: Actualizar parcialmente un icono\n *     description: Actualiza los campos enviados, sin modificar los demás\n *     tags: [Icons]\n *     parameters:\n *       - in: path\n *         name: id\n *         required: true\n *         schema:\n *           type: string\n *         description: ID del icono\n *     requestBody:\n *       required: true\n *       content:\n *         application/json:\n *           schema:\n *             type: object\n *             properties:\n *               name: { type: string }\n *               data: { type: object }\n *     responses:\n *       200:\n *         description: Icono actualizado parcialmente\n *       400:\n *         description: Datos inválidos\n *       404:\n *         description: Icono no encontrado\n */\napp.patch('/api/icons/:id', async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {\n  try {\n    const parsed = IconUpdateSchema.parse(req.body);\n    const record = await __zeusCollection(pb, 'icons').update(req.params.id, parsed);\n    const icon: Icon = record as unknown as Icon;\n    res.json(icon);\n  } catch (error: any) {\n    if (error instanceof z.ZodError) {\n      return res.status(400).json({ message: 'Error de validación', errors: error.errors });\n    }\n    if (error?.status === 404) {\n      return res.status(404).json({ message: 'Icono no encontrado' });\n    }\n    next(error);\n  }\n});\n\n/**\n * @swagger\n * /api/icons/{id}:\n *   delete:\n *     summary: Eliminar un icono\n *     description: Borra el icono indicado por su ID\n *     tags: [Icons]\n *     parameters:\n *       - in: path\n *         name: id\n *         required: true\n *         schema:\n *           type: string\n *         description: ID del icono\n *     responses:\n *       200:\n *         description: Icono eliminado\n *       404:\n *         description: Icono no encontrado\n */\napp.delete('/api/icons/:id', async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {\n  try {\n    await __zeusCollection(pb, 'icons').delete(req.params.id);\n    res.json({ message: 'Icono eliminado', id: req.params.id });\n  } catch (error: any) {\n    if (error?.status === 404) {\n      res.status(404).json({ message: 'Icono no encontrado' });\n    } else {\n      next(error);\n    }\n  }\n});\n\n/**\n * @swagger\n * /api/icons/import:\n *   post:\n *     summary: Importar un icono desde archivo SVG\n *     description: Sube un archivo SVG y lo convierte en un nuevo icono\n *     tags: [Icons]\n *     requestBody:\n *       required: true\n *       content:\n *         multipart/form-data:\n *           schema:\n *             type: object\n *             required:\n *               - file\n *             properties:\n *               file:\n *                 type: string\n *                 format: binary\n *               name:\n *                 type: string\n *                 description: Nombre personalizado (opcional)\n *     responses:\n *       201:\n *         description: Icono importado exitosamente\n *       400:\n *         description: Archivo no válido\n */\napp.post('/api/icons/import', upload.single('file'), async (req: Request, res: Response, next: NextFunction) => {\n  try {\n    if (!req.file) {\n      return res.status(400).json({ message: 'No se proporcionó ningún archivo' });\n    }\n    const filePath = req.file.path;\n    const svgContent = fs.readFileSync(filePath, 'utf-8');\n    const name = req.body.name || path.basename(req.file.originalname, path.extname(req.file.originalname));\n    const iconData = { svg: svgContent };\n    const record = await __zeusCollection(pb, 'icons').create({ name, data: iconData });\n    const icon: Icon = record as unknown as Icon;\n    // Opcional: eliminar el archivo temporal después de procesarlo\n    fs.unlinkSync(filePath);\n    res.status(201).json(icon);\n  } catch (error) {\n    next(error);\n  }\n});\n\n// Middleware de manejo de errores\napp.use((err: any, req: Request, res: Response, next: NextFunction) => {\n  console.error(err);\n  res.status(err.status || 500).json({ message: err.message || 'Error interno del servidor' });\n});\n\n// Iniciar servidor\napp.listen(PORT, () => {\n  console.log(`Servidor API ejecutándose en http://localhost:${PORT}`);\n  console.log(`Swagger UI disponible en http://localhost:${PORT}/api-docs`);\n});\n",
+  "generatedAt": "2026-05-25T21:49:55.578Z",
+  "autoGenerated": true
+}

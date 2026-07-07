@@ -1,0 +1,191 @@
+[
+  {
+    "id": "list-icons",
+    "path": "/api/icons",
+    "method": "GET",
+    "description": "Obtiene todos los iconos almacenados",
+    "parameters": {},
+    "testTask": {
+      "id": "test-list-icons",
+      "endpointId": "list-icons",
+      "method": "POST",
+      "path": "/api/generate-api/test/list-icons",
+      "title": "Test GET /api/icons",
+      "inputValues": {}
+    }
+  },
+  {
+    "id": "get-icon",
+    "path": "/api/icons/{id}",
+    "method": "GET",
+    "description": "Obtiene un icono por su ID",
+    "parameters": {
+      "id": {
+        "type": "string",
+        "required": true,
+        "description": "ID del icono"
+      }
+    },
+    "testTask": {
+      "id": "test-get-icon",
+      "endpointId": "get-icon",
+      "method": "POST",
+      "path": "/api/generate-api/test/get-icon",
+      "title": "Test GET /api/icons/{id}",
+      "inputValues": {
+        "id": ""
+      }
+    }
+  },
+  {
+    "id": "create-icon",
+    "path": "/api/icons",
+    "method": "POST",
+    "description": "Crea un nuevo icono con datos JSON",
+    "parameters": {
+      "name": {
+        "type": "string",
+        "required": true,
+        "description": "Nombre del icono"
+      },
+      "data": {
+        "type": "object",
+        "required": true,
+        "description": "Datos del icono (estructura libre)"
+      }
+    },
+    "testTask": {
+      "id": "test-create-icon",
+      "endpointId": "create-icon",
+      "method": "POST",
+      "path": "/api/generate-api/test/create-icon",
+      "title": "Test POST /api/icons",
+      "inputValues": {
+        "name": "",
+        "data": ""
+      }
+    }
+  },
+  {
+    "id": "update-icon",
+    "path": "/api/icons/{id}",
+    "method": "PUT",
+    "description": "Actualiza completamente un icono por ID",
+    "parameters": {
+      "id": {
+        "type": "string",
+        "required": true,
+        "description": "ID del icono"
+      },
+      "name": {
+        "type": "string",
+        "required": true,
+        "description": "Nuevo nombre"
+      },
+      "data": {
+        "type": "object",
+        "required": true,
+        "description": "Nuevos datos completos"
+      }
+    },
+    "testTask": {
+      "id": "test-update-icon",
+      "endpointId": "update-icon",
+      "method": "POST",
+      "path": "/api/generate-api/test/update-icon",
+      "title": "Test PUT /api/icons/{id}",
+      "inputValues": {
+        "id": "",
+        "name": "",
+        "data": ""
+      }
+    }
+  },
+  {
+    "id": "patch-icon",
+    "path": "/api/icons/{id}",
+    "method": "PATCH",
+    "description": "Actualiza parcialmente un icono por ID",
+    "parameters": {
+      "id": {
+        "type": "string",
+        "required": true,
+        "description": "ID del icono"
+      },
+      "name": {
+        "type": "string",
+        "required": false,
+        "description": "Nuevo nombre (opcional)"
+      },
+      "data": {
+        "type": "object",
+        "required": false,
+        "description": "Datos parciales (opcional)"
+      }
+    },
+    "testTask": {
+      "id": "test-patch-icon",
+      "endpointId": "patch-icon",
+      "method": "POST",
+      "path": "/api/generate-api/test/patch-icon",
+      "title": "Test PATCH /api/icons/{id}",
+      "inputValues": {
+        "id": "",
+        "name": "",
+        "data": ""
+      }
+    }
+  },
+  {
+    "id": "delete-icon",
+    "path": "/api/icons/{id}",
+    "method": "DELETE",
+    "description": "Elimina un icono por ID",
+    "parameters": {
+      "id": {
+        "type": "string",
+        "required": true,
+        "description": "ID del icono"
+      }
+    },
+    "testTask": {
+      "id": "test-delete-icon",
+      "endpointId": "delete-icon",
+      "method": "POST",
+      "path": "/api/generate-api/test/delete-icon",
+      "title": "Test DELETE /api/icons/{id}",
+      "inputValues": {
+        "id": ""
+      }
+    }
+  },
+  {
+    "id": "import-icon",
+    "path": "/api/icons/import",
+    "method": "POST",
+    "description": "Importa un icono desde un archivo SVG",
+    "parameters": {
+      "file": {
+        "type": "string",
+        "required": true,
+        "description": "Archivo SVG a importar (form-data)"
+      },
+      "name": {
+        "type": "string",
+        "required": false,
+        "description": "Nombre personalizado (opcional)"
+      }
+    },
+    "testTask": {
+      "id": "test-import-icon",
+      "endpointId": "import-icon",
+      "method": "POST",
+      "path": "/api/generate-api/test/import-icon",
+      "title": "Test POST /api/icons/import",
+      "inputValues": {
+        "file": "",
+        "name": ""
+      }
+    }
+  }
+]

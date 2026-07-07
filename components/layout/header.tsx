@@ -1,0 +1,51 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { IconLibraryModal } from '@/components/icon-library/icon-library-modal';
+import { IconSettingsButton } from '@/components/icon-library/icon-settings-button';
+import AuthStatus from '@/components/auth/auth-status';
+import { useIconLibraryContext } from '@/context/icon-library-context';
+import LogoSvg from '@/components/LogoSvg';
+import zeusIconData from '@/zeus-icon.json';
+
+export const Header: React.FC = () => {
+  const { isModalOpen, toggleModal } = useIconLibraryContext();
+
+  return (
+    <>
+      <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-gray-800 bg-[#0f0f1a] px-4 text-white">
+        <div className="flex items-center gap-4">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+            <LogoSvg size={36} />
+            <LogoSvg size={20} data={zeusIconData} />
+          </Link>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleModal}
+            aria-label="Biblioteca de iconos"
+            title="Biblioteca de iconos"
+            className="text-gray-300 hover:text-white hover:bg-gray-800"
+          >
+            <img src="/uploads/LibrarySquare.png" alt="icon" width={24} height={24} className="inline-block" />
+          </Button>
+          <IconSettingsButton className="text-gray-300 hover:text-white hover:bg-gray-800" />
+          <div className="ml-2 border-l border-gray-700 pl-2">
+           
+            <AuthStatus />
+          </div>
+        </div>
+      </header>
+
+      <IconLibraryModal open={isModalOpen} onOpenChange={toggleModal} />
+    </>
+  );
+};
+
+export default Header;
